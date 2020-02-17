@@ -6,7 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require "faker"
-User.destroy_all
+case Rails.env
+when "development"
+  User.destroy_all
 Event.destroy_all
 Attendance.destroy_all
 
@@ -22,4 +24,13 @@ end
   new_attendance = Attendance.create!(event: Event.all.sample, attendee: User.all.sample)
 end
 
+
+when "production"
+  user = User.create!(first_name: "Matthieu", last_name: "Degré", email: "matthieu.degre@gmail.com", description: "Hello guys how are you? I am from lyon and I am very happy to see you there!")
+  user2 = User.create!(first_name: "Charlie", last_name: "Carpene", email: "charlie.carpene@gmail.com", description: "Hello guys how are you? I am from lyon and I am very happy to see you there!")
+  new_event = Event.create!(start_date: Time.now + 1.month, duration: 60, description: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false), title: Faker::Lorem.sentence(word_count: 3), price: Faker::Number.between(from: 1, to: 800), location: Faker::Address.city, admin: User.all.sample)
+  new_attendance = Attendance.create!(event: Event.all.sample, attendee: User.all.sample)
+else
+  
+end
 
