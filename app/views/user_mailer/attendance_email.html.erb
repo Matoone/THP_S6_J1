@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Salut <%= @user.first_name %> !</h1>
+    <p>
+      Tu t'es inscrit à un évènement sur eventbritelike.fr en utilisant l'e-mail suivant : <%= @user.email %>.
+    </p>
+    <p>
+      Titre de l'évènement: <%= @event.title %>
+      Date de l'évènement: <%= @event.start_date %>
+      Ville: <%= @event.location %>
+    </p>
+    <p>
+      Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+    </p>
+    <p> À très vite sur eventbritelike.fr !
+  </body>
+</html>
