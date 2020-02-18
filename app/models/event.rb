@@ -5,8 +5,8 @@ class Event < ApplicationRecord
   validates :description, presence: true, length: {minimum: 20, maximum: 1000}
   validates :price, presence: true, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 1000 }
   validates :location, presence: true
-  validate start_date_cannot_be_in_the_past
-  validate duration_must_be_multiple_of_5
+  validate :start_date_cannot_be_in_the_past
+  validate :duration_must_be_multiple_of_5
   has_many :attendances
   has_many :attendees, through: :attendances, class_name: 'User'
   belongs_to :admin, class_name: 'User'
@@ -21,5 +21,11 @@ class Event < ApplicationRecord
     if duration.present? && duration % 5 != 0
       errors.add(:duration, "doit être multiple de 5")
     end
+  end
+
+
+
+  def end_date
+    return start_date + duration.minutes
   end
 end

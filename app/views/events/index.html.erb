@@ -1,0 +1,33 @@
+<% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %>" role="alert">
+            <%= value %>
+      </div>
+<% end %>
+
+<div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Bienvenue sur EventBriteLike</h1>
+          <p>Ce site hors du commun vous permettra de vous inscrire à des évènements inutiles afin de faire passer le temps de votre misérable vie ennuyeuse.</p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more »</a></p>
+        </div>
+</div>
+
+<% @events.each do |event| %>
+  <div class="card text-center text-white bg-dark mb-3">
+  <div class="card-header">
+    <%= event.start_date.strftime("Le %d/%m/%Y à %H:%M") + " à " + event.location %>
+  </div>
+  <div class="card-body">
+    <h1 class="card-title pricing-card-title"> <%= event.price %><small class="text-muted"> € </small></h1>
+    <h2 class="card-title"><%= event.title %></h2>
+    <p class="card-text"> <%= event.description %></p>
+    <%= link_to "Voir le détail", event_path(event.id), class_name: "btn btn-primary" %>
+  </div>
+  <div class="card-footer text-muted">
+    <%= distance_of_time_in_words(event.created_at, DateTime.now) + " ago"%> <br />
+    <% if event.admin.first_name && event.admin.last_name %>
+    <%= "Créé par " + event.admin.first_name + " " + event.admin.last_name %>
+    <% end %>
+  </div>
+</div>
+<% end %>

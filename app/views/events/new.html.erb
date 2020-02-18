@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <br><br><br>
+      <% if @errors %>
+        <% @errors.messages.each do |message|%>
+           <div class="alert alert-danger" role="alert">
+            Le champ <%= message[0] %> a le problème suivant: <%= message[1][0] %>
+            </div>
+        <% end %>
+      <% end %>
+      <%= form_for @event, url: events_path(@event), html: { class: "form-signin mt-3" } do |f| %>
+        <h1 class="h3 mb-3 font-weight-normal text-center">Nouvel évènement</h1>
+        <div class="form-group">
+          <%= f.label :title, "Titre de l'évènement" %><br />
+          <%= f.text_field :title, autofocus: true, autocomplete: "titre", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :location, "Ville de l'évènement" %><br />
+          <%= f.text_field :location, autocomplete: "Paris", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :start_date, "Date et heure de l'évènement" %><br />
+          <%= f.datetime_field :start_date, min: Date.today, class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :duration, "Durée de l'évènement en minutes (multiple de 5)" %><br />
+          <%= f.number_field :duration, autocomplete: "50", step:"5", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, autocomplete: "description", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :price %><br />
+          <%= f.number_field :price, autocomplete: "50", class: "form-control" %>
+        </div>
+        <div class="actions mt-5">
+          <%= f.submit "Créer l'évènement", class: "btn btn-lg btn-primary btn-block" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+datetime_field("user", "born_on", min: Date.today)
+t.datetime "start_date"
+    t.integer "duration"
+    t.string "title"
+    t.text "description"
+    t.integer "price"
+    t.string "location"
+    t.bigint "admin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_events_on_admin_id"

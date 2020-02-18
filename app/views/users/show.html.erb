@@ -1,0 +1,37 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"><%= @user.first_name %> <%= @user.last_name %></h1>
+    <p class="lead"><%= @user.description%></p>
+    <div class="container">
+        <!-- Example row of columns -->
+        <div class="row">
+          <div class="col-md-4">
+            <h2>Contact</h2>
+            <p>email: <%= @user.email %> </p>
+            <%= link_to "Changer d'adresse email ou de mot de passe", edit_user_registration_path %>
+          </div>
+        </div>
+
+        <hr>
+
+      </div>
+  </div>
+</div>
+
+<% @user.administrated_events.each do |event| %>
+  <div class="card text-center text-white bg-dark mb-3">
+  <div class="card-header">
+    <%= event.start_date.strftime("Le %d/%m/%Y à %H:%M") + " à " + event.location %>
+  </div>
+  <div class="card-body">
+    <h1 class="card-title pricing-card-title"> <%= event.price %><small class="text-muted"> € </small></h1>
+    <h2 class="card-title"><%= event.title %></h2>
+    <p class="card-text"> <%= event.description %></p>
+    <%= link_to "Voir le détail", event_path(event.id), class_name: "btn btn-primary" %>
+  </div>
+  <div class="card-footer text-muted">
+    <%= distance_of_time_in_words(event.created_at, DateTime.now) + " ago"%> <br />
+    <%= "Créé par " + event.admin.first_name + " " + event.admin.last_name %>
+  </div>
+</div>
+<% end %>
