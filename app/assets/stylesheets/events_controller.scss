@@ -1,3 +1,28 @@
 // Place all the styles related to the events_controller controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.jumbotron-index {
+  background-image: asset-data-url("cheers.jpg");
+  background-size: cover;
+  background-position: 0% 35%;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: black 0.1em 0.1em 0.1em;
+  // height: 100%;
+  // min-height: 300px;
+}
+
+.jumbotron-event {
+  background-image: asset-data-url("event.jpg");
+  background-size: cover;
+  background-position: 0% 35%;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: black 0.1em 0.1em 0.1em;
+  // height: 100%;
+  // min-height: 300px;
+}
+
+body {
+  background: asset-data-url("concrete_texture.png");
+}

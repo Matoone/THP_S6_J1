@@ -1,0 +1,14 @@
+body {
+  background: asset-data-url("concrete_texture.png");
+}
+
+.jumbotron-user {
+  background-image: asset-data-url("user.jpg");
+  background-size: cover;
+  background-position: 0% 35%;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: black 0.1em 0.1em 0.1em;
+  // height: 100%;
+  // min-height: 300px;
+}

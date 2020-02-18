@@ -1,5 +1,5 @@
 
-<div class="jumbotron">
+<div class="jumbotron jumbotron-fluid jumbotron-event">
         <div class="container">
           <h1 class="display-2"><%= @event.title %></h1>
           <h2 class="display-3"><%= @event.price %><small class="text-muted"> € </small></h2>
@@ -9,6 +9,8 @@
           <p>Durée: <%= @event.duration %> minutes</p>
           <p>Début : <%= @event.start_date.strftime("Le %d/%m/%Y à %H:%M")%></p>
           <p>Fin: <%= @event.end_date.strftime("Le %d/%m/%Y à %H:%M") %></p>
+
+          <p>Nombre d'inscrits: <%= @event.attendees.length %></p>
           <br/><br/>
           <small>Evènement organisé par: <%= @event.admin.email %></small>
         </div>
