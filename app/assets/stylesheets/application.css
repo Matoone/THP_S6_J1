@@ -14,17 +14,24 @@
  *= require_self
  */
  h1, h2, h3, h4, h5, h6 {
-  font-family: 'Corben', Georgia, Times, serif;
-  padding: 20px;
-  margin: 10px;
+  font-family: 'Arapey', sans-serif;
+  padding: 5px;
+  margin: 3px;
 }
 p, div {
-  font-family: 'Nobile', Helvetica, Arial, sans-serif;
+  font-family: 'Arapey', sans-serif;
 }
-h1 {
+/* h1 {
 
 text-shadow: 1px 0px 1px #CCCCCC, 0px 1px 1px #EEEEEE, 2px 1px 1px #CCCCCC, 1px 2px 1px #EEEEEE, 3px 2px 1px #CCCCCC, 2px 3px 1px #EEEEEE, 4px 3px 1px #CCCCCC, 3px 4px 1px #EEEEEE, 5px 4px 1px #CCCCCC, 4px 5px 1px #EEEEEE, 6px 5px 1px #CCCCCC, 5px 6px 1px #EEEEEE, 7px 6px 1px #CCCCCC;
-}
+} */
 ul {
   list-style: none;
+}
+.card {
+  max-width: 50%;
+  min-width: 20%;
+}
+.cards-container {
+  margin-top: 80px;
 }

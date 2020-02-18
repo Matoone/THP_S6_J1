@@ -26,3 +26,42 @@
 body {
   background: asset-data-url("concrete_texture.png");
 }
+
+/* Header Parallax Element Style*/ 
+.paral {
+min-height: 600px;
+background-attachment: fixed;
+background-size: cover;
+
+}
+/* Paragraph for Parallax Section */ 
+.paral p {
+  font-size: 24px;
+  color:#f5f5f5;
+  text-align: center;
+  
+  }
+   
+  /* Heading for Parallax Section */ 
+  .paral h1 {
+
+
+  text-align: center;
+  
+  }
+
+  /* Image for Parallax Section */ 
+.paralsec {
+  background-image: url("https://img.webnots.com/2017/05/parallax.jpg");
+  }
+   
+  .paralsec1 {
+  background-image: url("https://cdn.pixabay.com/photo/2017/07/27/00/46/fantasy-2543658_960_720.jpg");}
+   
+  .paralsec2 {
+  background-image: url("https://cdn.pixabay.com/photo/2015/12/08/00/37/basketball-1081882_960_720.jpg");
+  }
+
+  /* Remove Bottom Margin from Jumbotron */
+.jumbotron{margin-bottom: 0;}
+   

@@ -12,14 +12,14 @@
           </div>
         </div>
 
-        <hr>
+       
 
       </div>
   </div>
 </div>
 
 <% @user.administrated_events.each do |event| %>
-  <div class="card text-center text-white bg-dark mb-3">
+  <div class="card text-center text-white bg-dark mb-3 mx-auto">
   <div class="card-header">
     <%= event.start_date.strftime("Le %d/%m/%Y à %H:%M") + " à " + event.location %>
   </div>

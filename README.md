@@ -16,3 +16,4 @@ Cette semaine tu vas faire un projet fil rouge qui t'accompagnera tout du long. 
 
   - just go to https://eventbritelikebymatoone.herokuapp.com/
   - you will have to create an account to post an event
+  

@@ -1,25 +1,27 @@
+
+<div class="jumbotron jumbotron-fluid jumbotron-index paral paralsec1">
 <% flash.each do |key, value| %>
       <div class="<%= flash_class(key) %>" role="alert">
             <%= value %>
       </div>
 <% end %>
 
-<div class="jumbotron jumbotron-fluid jumbotron-index">
         <div class="container">
-          <h1 class="display-3 text-center"><small>Bienvenue sur</small> <div><span style="color:#abe3e9;">E</span><span style="color:#c5e6cf;">v</span><span style="color:#e0e9b5;">e</span><span style="color:#faec9b;">n</span><span style="color:#fbf1b4;">t</span><span style="color:#fdf6cd;">B</span><span style="color:#fefae6;">r</span><span style="color:#ffffff;">i</span><span style="color:#fff0d9;">t</span><span style="color:#fee1b2;">e</span><span style="color:#fed28c;">L</span><span style="color:#febe8f;">i</span><span style="color:#ffa992;">k</span><span style="color:#ff9595;">e</span></div></h1>
-          <p>Ce site hors du commun vous permettra de vous inscrire à des évènements inutiles afin de faire passer le temps de votre misérable vie ennuyeuse.</p>
+          <div class="text-center"><p>Bienvenue sur</p><br/> <h1 class="display-1"> EventBriteLike </h1>
+          <p class= "lead">Ce site hors du commun vous permettra de vous inscrire à des évènements inutiles afin de faire passer le temps de votre misérable vie ennuyeuse.</p>
           
         </div>
 </div>
-
+ <div class= "cards-container">
 <% @events.each do |event| %>
-  <div class="card text-center text-white bg-dark mb-3">
+  <div class="card text-center text-white bg-dark mb-5 mx-auto">
   <div class="card-header">
     <%= event.start_date.strftime("Le %d/%m/%Y à %H:%M") + " à " + event.location %>
   </div>
   <div class="card-body">
-    <h1 class="card-title pricing-card-title"> <%= event.price %><small class="text-muted"> € </small></h1>
+    
     <h2 class="card-title"><%= event.title %></h2>
+    <h3 class="pricing-card-title"> <%= event.price %><small class="text-muted"> € </small></h3>
     <p class="card-text"> <%= event.description %></p>
     <%= link_to "Voir le détail", event_path(event.id), class_name: "btn btn-primary" %>
   </div>
@@ -31,3 +33,5 @@
   </div>
 </div>
 <% end %>
+</div>
+
