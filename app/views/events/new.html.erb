@@ -33,7 +33,7 @@
         </div>
         <div class="form-group">
           <%= f.label :price %><br />
-          <%= f.number_field :price, autocomplete: "50", class: "form-control" %>
+          <%= f.number_field :price, autocomplete: "50", in: 1...1001, class: "form-control" %>
         </div>
         <div class="actions mt-5">
           <%= f.submit "Créer l'évènement", class: "btn btn-lg btn-primary btn-block" %>
@@ -42,15 +42,3 @@
     </div>
   </div>
 </div>
-
-datetime_field("user", "born_on", min: Date.today)
-t.datetime "start_date"
-    t.integer "duration"
-    t.string "title"
-    t.text "description"
-    t.integer "price"
-    t.string "location"
-    t.bigint "admin_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["admin_id"], name: "index_events_on_admin_id"

@@ -33,6 +33,7 @@ class EventsController < ApplicationController
     puts "faaaail"
     puts "#"*60
     @errors = event.errors
+    @event = Event.new
     render :new
     end
     #gossip_params = params.require(:gossip).permit(:title, :content)
