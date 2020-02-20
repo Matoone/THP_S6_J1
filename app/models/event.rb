@@ -10,7 +10,7 @@ class Event < ApplicationRecord
   has_many :attendances
   has_many :attendees, through: :attendances, class_name: 'User'
   belongs_to :admin, class_name: 'User'
-  
+  has_one_attached :event_image
 
   def start_date_cannot_be_in_the_past
     if start_date.present? && start_date < DateTime.now

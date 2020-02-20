@@ -6,6 +6,9 @@ gem 'devise', '~> 4.2'
 gem 'mailjet', :git => 'https://github.com/mailjet/mailjet-gem.git'
 gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
 gem 'dotenv-rails'
+gem 'stripe'
+
+gem "aws-sdk-s3", require: false
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 # Use postgresql as the database for Active Record

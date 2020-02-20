@@ -3,6 +3,15 @@
 <h1 class="display-3 text-black"><%= @event.title %></h1>
 <h3 class="lead text-black text-center"><%= @event.description %></h3>
 <div class=" mx-auto m-5 text-center card border border-secondary rounded text-white bg-dark">
+  <% if @event.event_image.attached? %>
+    <%= image_tag @event.event_image, alt: "event image", class: "card-img-top" %>
+  <% elsif current_user == @event.admin %>
+    <h3> Ajouter une photo pour l'évènement </h3>
+    <%= form_tag event_event_images_path(@event.id), multipart: true do %>
+      <%= file_field_tag :event_image, class: "btn btn-primary" %>
+      <%= submit_tag "Envoyer la photo", class: "btn btn-success" %>
+    <% end %>
+  <% end %>
           <h2 class="card-header"><%= @event.price %><small class="text-muted"> € </small></h2>
           <div class="card-body">
               <p >Ville: <%= @event.location %></p>

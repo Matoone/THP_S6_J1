@@ -1,0 +1,2 @@
+module EventImageHelper
+end
