@@ -1,5 +1,10 @@
 <!-- Third Parallax Section -->
 <div class="jumbotron paral paralsec2">
+<% flash.each do |key, value| %>
+      <div class="<%= flash_class(key) %>" role="alert">
+            <%= value %>
+      </div>
+<% end %>
 <h1 class="display-3 text-black"><%= @event.title %></h1>
 <h3 class="lead text-black text-center"><%= @event.description %></h3>
 <div class=" mx-auto m-5 text-center card border border-secondary rounded text-white bg-dark">
@@ -24,6 +29,11 @@
           <p>Nombre d'inscrits: <%= @event.attendees.length %></p>
           
           <small>Evènement organisé par: <%= @event.admin.email %></small>
+          <% if ( current_user != @event.admin && current_user.isAttendeeOf(@event) == false ) %>
+            <%= link_to "S'insrire", new_event_attendance_path(@event), class: "btn btn-primary" %>
+          <% elsif current_user == @event.admin %>
+            <%= link_to "Page d'administration de l'évènement", event_attendances_path(@event), class: "btn btn-primary" %>
+          <% end %>
           </div>
         </div>
 </div>

@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <br><br><br>
+      <% if @errors %>
+        <% @errors.messages.each do |message|%>
+           <div class="alert alert-danger" role="alert">
+            Le champ <%= message[0] %> a le problème suivant: <%= message[1][0] %>
+            </div>
+        <% end %>
+      <% end %>
+      <%= form_for @event, url: event_path(@event), action: "update" , html: { class: "form-signin mt-3"} do |f| %>
+        <h1 class="h3 mb-3 font-weight-normal text-center">Edition de l'évènement</h1>
+        <div class="form-group">
+          <%= f.label :title, "Titre de l'évènement" %><br />
+          <%= f.text_field :title, autofocus: true, autocomplete: "titre", class: "form-control", value: @event.title %>
+        </div>
+        <div class="form-group">
+          <%= f.label :location, "Ville de l'évènement" %><br />
+          <%= f.text_field :location, autocomplete: "Paris", class: "form-control", value: @event.location %>
+        </div>
+        <div class="form-group">
+          <%= f.label :start_date, "Date et heure de l'évènement" %><br />
+          <%= f.datetime_field :start_date, min: Date.today, class: "form-control", value: @event.start_date.strftime('%d/%m/%Y à %H:%M') %>
+        </div>
+        <div class="form-group">
+          <%= f.label :duration, "Durée de l'évènement en minutes (multiple de 5)" %><br />
+          <%= f.number_field :duration, autocomplete: "50", step:"5", class: "form-control", value: @event.duration %>
+        </div>
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, autocomplete: "description", class: "form-control", value: @event.description %>
+        </div>
+        <div class="form-group">
+          <%= f.label :price %><br />
+          <%= f.number_field :price, autocomplete: "50", in: 1...1001, class: "form-control", value: @event.price %>
+        </div>
+        <div class="actions mt-5">
+          <%= f.submit "Editer l'évènement", class: "btn btn-lg btn-primary btn-block" %>
+        </div>
+      <% end %>
+    <%= link_to "Supprimer l'évènement", event_path(@event.id), method: "delete", class: "btn btn-lg btn-danger btn-block", data: { confirm: "Etes-vous sûr de vouloir supprimer définitivement cet évènement ?" } %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<h1>Page d'administration de l'évènement <%= @event.title %></h1>
+<div id="attendees-list">
+  <h3>Liste des participants</h3>
+  <ul>
+    <% @event.attendees.each do |attendee| %>
+    <li> Nom : <%= attendee.first_name %> <%= attendee.last_name %> Email: <%= attendee.email %> </li>
+    <% end %>
+  </ul>
+</div>
+
+<div id="edit-event-link">
+  <%= link_to "Page d'édition de l'évènement", edit_event_path(@event.id), class: "btn btn-primary" %>
+</div>
